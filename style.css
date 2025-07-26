@@ -2,6 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
+    --primary-color: #007bff;
+    --background-color: #f4f7f9;
+    --card-background-color: #ffffff;
+    --text-color: #333333;
+    --heading-color: #000000;
+    --link-color: #007bff;
+    --border-color: #e0e0e0;
+    --project-bg-color: #ffffff;
+    --project-border-color: #007bff;
+    --skill-bg-color: #e9ecef;
+    --skill-text-color: #333;
+    --skill-hover-bg-color: #007bff;
+    --skill-hover-text-color: #ffffff;
+}
+
+body.dark-theme {
     --primary-color: #00bcd4;
     --background-color: #1a1a2e;
     --card-background-color: #16213e;
@@ -9,6 +25,12 @@
     --heading-color: #ffffff;
     --link-color: #00bcd4;
     --border-color: #0f3460;
+    --project-bg-color: #1e2947;
+    --project-border-color: var(--primary-color);
+    --skill-bg-color: var(--border-color);
+    --skill-text-color: var(--text-color);
+    --skill-hover-bg-color: var(--primary-color);
+    --skill-hover-text-color: var(--background-color);
 }
 
 body {
@@ -18,6 +40,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 2rem 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -27,6 +50,7 @@ body {
     background-color: var(--card-background-color);
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
 }
 
 header {
@@ -84,7 +108,7 @@ a {
 }
 
 a:hover {
-    color: #ffffff;
+    color: var(--heading-color);
     text-decoration: underline;
 }
 
@@ -110,28 +134,28 @@ ul {
 }
 
 .skills-list li {
-    background-color: var(--border-color);
-    color: var(--text-color);
+    background-color: var(--skill-bg-color);
+    color: var(--skill-text-color);
     display: inline-block;
     padding: 8px 15px;
     margin: 5px;
     border-radius: 20px;
     font-size: 0.9rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .skills-list li:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    background-color: var(--skill-hover-bg-color);
+    color: var(--skill-hover-text-color);
 }
 
 .project, .job, .education, .certificate {
-    background-color: #1e2947;
+    background-color: var(--project-bg-color);
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    border-left: 5px solid var(--primary-color);
+    border-left: 5px solid var(--project-border-color);
     border-radius: 5px;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .project:hover, .job:hover {
@@ -157,9 +181,39 @@ ul {
     padding: 10px 15px;
     border-radius: 5px;
     font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .project-link:hover {
     background-color: #ffffff;
+    color: #000000;
     text-decoration: none;
+}
+
+/* Theme Switcher Button */
+.theme-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--card-background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-switcher:hover {
+    opacity: 0.8;
+}
+
+.theme-switcher i {
+    color: var(--primary-color);
 }
