@@ -12,114 +12,84 @@
     <button class="theme-switcher" id="theme-switcher" aria-label="Chuyển đổi giao diện">
         <i class="fas fa-moon"></i>
     </button>
-    <div class="container">
-        <header>
-            <h1>Thi Thanh Chương</h1>
-            <p>DEVELOPER</p>
-        </header>
 
-        <section id="summary">
-            <h2><i class="fas fa-user-alt"></i> GIỚI THIỆU</h2>
-            <p>
-                Tôi là Thi Thanh Chương, một nhà phát triển phần mềm với kinh nghiệm làm việc trên nhiều ngôn ngữ lập trình như C/C++, C#, JavaScript, Dart và Python. Tôi có kỹ năng vững vàng về cả cơ sở dữ liệu SQL và NoSQL, cùng với kinh nghiệm thực tế qua các dự án cá nhân và công việc freelance.
-            </p>
-        </section>
+    <div class="cv-container">
+        <aside class="left-column">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <canvas id="particle-canvas"></canvas>
+                </div>
+                <h1>Thi Thanh Chương</h1>
+                <p class="title">DEVELOPER / DATA ENGINEER</p>
+            </div>
 
-        <section id="contact">
-            <h2><i class="fas fa-address-card"></i> THÔNG TIN LIÊN HỆ</h2>
-            <div class="contact-info">
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> 13/1 ấp Chợ, xã Phú Phụng, TP Hồ Chí Minh</li>
-                    <li><i class="fas fa-phone"></i> <strong>Điện thoại:</strong> 0382202949</li>
-                    <li><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:thichuong22022000@gmail.com">thichuong22022000@gmail.com</a></li>
-                    <li><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/thichuong" target="_blank">github.com/thichuong</a></li>
-                    <li><i class="fab fa-kaggle"></i> <strong>Kaggle:</strong> <a href="https://www.kaggle.com/chuongthi" target="_blank">kaggle.com/chuongthi</a></li>
+            <section id="contact">
+                <h2><i class="fas fa-address-card"></i> LIÊN HỆ</h2>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i><span>13/1 ấp Chợ, xã Phú Phụng, TP Hồ Chí Minh</span></li>
+                    <li><i class="fas fa-phone"></i><span>0382202949</span></li>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:thichuong22022000@gmail.com">thichuong22022000@gmail.com</a></li>
+                    <li><i class="fab fa-github"></i><a href="https://github.com/thichuong" target="_blank">github.com/thichuong</a></li>
+                    <li><i class="fab fa-kaggle"></i><a href="https://www.kaggle.com/chuongthi" target="_blank">kaggle.com/chuongthi</a></li>
                 </ul>
-            </div>
-        </section>
+            </section>
 
-        <section id="skills">
-            <h2><i class="fas fa-cogs"></i> KỸ NĂNG</h2>
-            <ul class="skills-list">
-                <li>C++</li><li>C#</li><li>JavaScript</li><li>Dart</li><li>Python</li><li>SQL</li><li>NoSQL</li><li>PostgreSQL</li><li>Entity Framework</li><li>ASP.NET</li><li>.NET</li><li>HTML</li><li>Flask</li><li>Flutter</li><li>Machine Learning</li><li>Data Visualization</li><li>OCR</li><li>Prompt Engineering</li><li>Github</li><li>Cloud</li><li>Google Gemini API</li>
-            </ul>
-        </section>
-
-        <section id="experience">
-            <h2><i class="fas fa-briefcase"></i> KINH NGHIỆM LÀM VIỆC</h2>
-            <div class="job">
-                <h3>Freelancer</h3>
-                <p class="date">08/2023 - 07/2025</p>
-            </div>
-            <div class="job">
-                <h3>.NET DEVELOPER</h3>
-                <h4>QA Solutions</h4>
-                <p class="date">04/2022 - 07/2022</p>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2><i class="fas fa-project-diagram"></i> DỰ ÁN CÁ NHÂN</h2>
-            <div class="project">
-                <h3>Crypto Dashboard & Report App</h3>
-                <p><strong>Mô tả:</strong> Xây dựng một ứng dụng web toàn diện, cung cấp hai tính năng chính: một bảng điều khiển (dashboard) theo dõi thị trường tiền mã hóa theo thời gian thực và một công cụ tạo báo cáo phân tích chuyên sâu bằng trí tuệ nhân tạo.</p>
-                <ul class="project-description">
-                    <li><strong>Bảng điều khiển:</strong> Trực quan hóa dữ liệu real-time từ các API (CoinGecko, Alternative.me) bằng các biểu đồ tương tác, sử dụng Flask-Caching để tối ưu hiệu suất.</li>
-                    <li><strong>Tạo Báo cáo AI:</strong> Tận dụng Google Gemini API và kỹ năng Prompt Engineering để tự động tạo ra các báo cáo phân tích thị trường chi tiết, có cấu trúc từ yêu cầu của người dùng.</li>
+            <section id="skills">
+                <h2><i class="fas fa-cogs"></i> KỸ NĂNG</h2>
+                <ul class="skills-list">
+                    <li>Python</li><li>C#</li><li>C++</li><li>JavaScript</li><li>Dart</li><li>SQL</li><li>NoSQL</li><li>PostgreSQL</li><li>.NET</li><li>ASP.NET</li><li>Flask</li><li>Flutter</li><li>Github</li><li>Cloud</li><li>Machine Learning</li><li>Deep Learning</li><li>NLP</li><li>Computer Vision</li><li>Generative AI</li><li>Prompt Engineering</li><li>Google Gemini API</li><li>Data Visualization</li><li>MLOps</li><li>PyTorch</li>
                 </ul>
-                <p><strong>Công nghệ:</strong> Python, Flask, Vanilla JavaScript, HTML5, CSS3, Google Gemini API</p>
-                <a href="https://github.com/thichuong/crypto-dashboard-app" class="project-link" target="_blank">Xem trên GitHub <i class="fas fa-external-link-alt"></i></a>
-            </div>
-            <div class="project">
-                <h3>MobileAppTranslate</h3>
-                <p class="date">10/2022 - 02/2023</p>
-                <p><strong>Mô tả:</strong> Ứng dụng di động dịch thuật đa năng, kết hợp nhận dạng giọng nói, OCR thời gian thực và nhận diện vật thể để mang lại sự tiện lợi tối đa cho người dùng.</p>
-                <p><strong>Công nghệ:</strong> Flutter, Google ML Kit</p>
-            </div>
-            <div class="project">
-                <h3>Game Mario Bros 3 Clone</h3>
-                <p class="date">10/2020 - 01/2021</p>
-                <p><strong>Mô tả:</strong> Dự án game Mario được phát triển bằng C++ và DirectX 10.</p>
-                <p><strong>Công nghệ:</strong> C++, DirectX 10</p>
-            </div>
-             <div class="project">
-                <h3>Tour Manager App (Server)</h3>
-                <p class="date">09/2020 - 12/2020</p>
-                <p><strong>Mô tả:</strong> Xây dựng phần backend và cơ sở dữ liệu cho ứng dụng quản lý tour. Phía client là một ứng dụng di động.</p>
-                <p><strong>Công nghệ:</strong> C#, .NET, ASP.NET Core, PostgreSQL, Flutter</p>
-            </div>
-             <div class="project">
-                <h3>Drawing Software Application</h3>
-                <p class="date">08/2019 - 01/2020</p>
-                <p><strong>Mô tả:</strong> Xây dựng ứng dụng vẽ (paint) trên nền tảng WinForms.</p>
-                <p><strong>Công nghệ:</strong> C#, .NET Framework</p>
-            </div>
-        </section>
+            </section>
+            
+            <section id="education" class="reveal">
+                <h2><i class="fas fa-user-graduate"></i> HỌC VẤN</h2>
+                 <div class="education">
+                    <h3>ĐH CNTT - ĐHQG TP.HCM</h3>
+                    <p>Kỹ thuật Phần mềm</p>
+                    <p class="date"><time datetime="2018-09">09/2018</time> - <time datetime="2022-07">07/2022</time></p>
+                 </div>
+            </section>
 
-        <section id="education">
-            <h2><i class="fas fa-user-graduate"></i> HỌC VẤN</h2>
-             <div class="education">
-                <h3>Đại học Công nghệ Thông tin - ĐHQG TP.HCM</h3>
-                <p>Chuyên ngành: Kỹ thuật Phần mềm</p>
-                <p class="date">09/2018 - 07/2022</p>
-             </div>
-        </section>
+            <section id="certificates" class="reveal">
+                <h2><i class="fas fa-certificate"></i> CHỨNG CHỈ</h2>
+                 <div class="certificate">
+                    <h3><a href="https://coursera.org/share/75ad6ec2a87cd7649f05993d738b5cfe" target="_blank">IBM Data Science</a></h3>
+                     <p class="date"><time datetime="2023-06">06/2023</time></p>
+                 </div>
+                 <div class="certificate">
+                    <h3><a href="https://coursera.org/share/0bbe63bf39a4d44f5978396166de16d6" target="_blank">IBM AI Engineering</a></h3>
+                     <p class="date"><time datetime="2025-07">07/2025</time></p>
+                 </div>
+            </section>
+        </aside>
 
-        <section id="certificates">
-            <h2><i class="fas fa-certificate"></i> CHỨNG CHỈ</h2>
-             <div class="certificate">
-                <h3><a href="https://coursera.org/share/75ad6ec2a87cd7649f05993d738b5cfe" target="_blank">IBM Data Science</h3>
-                 <h4>Coursera</h4>
-                <p class="date">06/2023</p>
-             </div>
-             <div class="certificate">
-                <h3><a href="https://coursera.org/share/0bbe63bf39a4d44f5978396166de16d6" target="_blank">IBM AI Engineering</a></h3>
-                 <h4>Coursera</h4>
-                <p class="date">07/2025</p>
-             </div>
-        </section>
+        <main class="right-column">
+            <section id="summary" class="reveal">
+                <h2><i class="fas fa-user-alt"></i> GIỚI THIỆU</h2>
+                <p>
+                    Là một Kỹ sư Dữ liệu và Nhà phát triển Phần mềm, tôi chuyên sâu vào việc ứng dụng các công nghệ AI tiên tiến để giải quyết những bài toán phức tạp. Với nền tảng vững chắc về phát triển phần mềm và kiến thức chuyên sâu từ chứng chỉ <strong>IBM AI Engineering</strong>, tôi có năng lực xây dựng, huấn luyện và triển khai các mô hình học máy hiệu quả. Kinh nghiệm của tôi trải dài từ Computer Vision, NLP cho đến các hệ thống AI tạo sinh (Generative AI), với mục tiêu mang lại giá trị và sự đột phá cho sản phẩm.
+                </p>
+            </section>
 
+            <section id="experience" class="reveal">
+                <h2><i class="fas fa-briefcase"></i> KINH NGHIỆM LÀM VIỆC</h2>
+                <div class="job">
+                    <h3>Freelancer</h3>
+                    <p class="date"><time datetime="2023-08">08/2023</time> - <time datetime="2025-07">07/2025</time></p>
+                </div>
+                <div class="job">
+                    <h3>.NET DEVELOPER</h3>
+                    <h4>QA Solutions</h4>
+                    <p class="date"><time datetime="2022-04">04/2022</time> - <time datetime="2022-07">07/2022</time></p>
+                </div>
+            </section>
+
+            <section class="reveal">
+                <a href="projects.html" class="view-all-projects-btn">
+                    <i class="fas fa-project-diagram"></i> Xem Tất Cả Dự Án
+                </a>
+            </section>
+        </main>
     </div>
-
 </body>
 </html>
