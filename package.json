@@ -1,0 +1,40 @@
+{
+  "name": "thichuong-cv-website",
+  "version": "2.0.0",
+  "description": "Modern, responsive CV website with modular architecture",
+  "main": "index-modular.html",
+  "scripts": {
+    "dev": "python -m http.server 8080",
+    "build": "echo 'Static site - no build required'",
+    "deploy": "git add . && git commit -m 'Update CV' && git push origin main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thichuong/thichuong.github.io.git"
+  },
+  "keywords": [
+    "cv",
+    "resume", 
+    "portfolio",
+    "javascript",
+    "html",
+    "css",
+    "responsive",
+    "modular"
+  ],
+  "author": "Thi Thanh Chuong",
+  "license": "MIT",
+  "devDependencies": {},
+  "files": [
+    "index.html",
+    "index-modular.html", 
+    "style.css",
+    "data/",
+    "components/",
+    "README.md",
+    "README-modular.md"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Thi Thanh Chương</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Data -->
+    <script src="data/cv-data.js"></script>
+    
+    <!-- Components -->
+    <script src="components/contact.js"></script>
+    <script src="components/skills.js"></script>
+    <script src="components/education.js"></script>
+    <script src="components/experience.js"></script>
+    <script src="components/summary.js"></script>
+    <script src="components/projects.js"></script>
+    <script src="components/component-manager.js"></script>
+    <script src="components/ui-manager.js"></script>
+    
+    <!-- Main Script -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <button class="theme-switcher" id="theme-switcher" aria-label="Chuyển đổi giao diện">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- CV Content will be rendered here -->
+    <div id="cv-content"></div>
+
+    <script>
+        // Initialize and render CV content
+        document.addEventListener('DOMContentLoaded', async () => {
+            const componentManager = new ComponentManager();
+            await componentManager.renderToElement('cv-content');
+        });
+    </script>
+</body>
+</html>
