@@ -88,7 +88,7 @@ const CVData = {
             technologies: ["Python", "LangGraph", "Google Gemini API", "Flask","SQLAlchemy", "JavaScript"],
             links: {
                 github: "https://github.com/thichuong/Crypto-Dashboard-and-AI-ReportGenerator",
-                demo: "#"
+                demo: "https://crypto-dashboard-app-thichuong.vercel.app"
             }
         },
         {
@@ -110,8 +110,7 @@ const CVData = {
             dateRange: "10/2020 - 01/2021",
             description: "Dự án game Mario phát triển bằng C++ và DirectX 10, tái hiện lại các cơ chế gameplay kinh điển với đồ họa và âm thanh chất lượng cao.",
             achievements: [
-                { icon: "fas fa-trophy", text: "Physics Engine tự phát triển" },
-                { icon: "fas fa-gamepad", text: "15+ levels hoàn chỉnh" }
+                { icon: "fas fa-trophy", text: "Physics Engine tự phát triển" }
             ],
             technologies: ["C++", "DirectX 10", "Game Development"],
             links: {

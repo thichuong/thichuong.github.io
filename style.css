@@ -889,3 +889,89 @@ body {
         gap: 0.75rem;
     }
 }
+
+/* ---- PERFORMANCE OPTIMIZATIONS ---- */
+
+/* Optimize animations and transitions */
+* {
+    will-change: auto;
+}
+
+/* Optimize transform-heavy elements */
+.project-card,
+.skill-progress,
+.theme-switcher,
+.reveal {
+    will-change: transform, opacity;
+}
+
+.project-card:not(:hover) {
+    will-change: auto;
+}
+
+/* Enable hardware acceleration for smooth animations */
+.skill-progress,
+.project-card,
+.reveal,
+.theme-switcher {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Optimize canvas rendering */
+#particle-canvas {
+    will-change: auto;
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+}
+
+/* Reduce paint complexity */
+.profile-image {
+    contain: layout style paint;
+}
+
+.projects-grid {
+    contain: layout;
+}
+
+/* Optimize text rendering */
+body {
+    text-rendering: optimizeSpeed;
+    font-smooth: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent layout thrashing */
+.skill-bar,
+.project-card,
+.reveal {
+    contain: layout style;
+}
+
+/* Optimize reveal animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Lazy load optimizations */
+/* Note: loading="lazy" is an HTML attribute, not CSS */
+
+/* Content visibility for better rendering performance */
+@supports (content-visibility: auto) {
+    .left-column section:not(:first-child),
+    .right-column section:not(:first-child) {
+        content-visibility: auto;
+        contain-intrinsic-size: 200px;
+    }
+}
