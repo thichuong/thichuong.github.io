@@ -67,6 +67,12 @@ const CVData = {
             url: "https://coursera.org/share/0bbe63bf39a4d44f5978396166de16d6",
             date: "2025-07"
         }
+        ,
+        {
+            name: "IBM RAG and Agentic AI",
+            url: "https://coursera.org/share/364f78d71cb70a0902066e3bc3ee9aae",
+            date: "2024-09"
+        }
     ],
 
     experience: [
