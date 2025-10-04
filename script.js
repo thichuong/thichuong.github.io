@@ -20,56 +20,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Prevent #ai-result from flashing during theme transitions.
-    const aiResult = document.getElementById('ai-result');
-    const hidePrompt = () => {
-        if (!aiResult) return;
-        aiResult.style.visibility = 'hidden';
-        aiResult.setAttribute('aria-hidden', 'true');
-    };
-    const showPrompt = () => {
-        if (!aiResult) return;
-        aiResult.style.visibility = '';
-        aiResult.removeAttribute('aria-hidden');
-    };
-
-    const getBodyTransitionMs = () => {
-        try {
-            const cs = window.getComputedStyle(body).transitionDuration || '';
-            const first = cs.split(',')[0].trim();
-            if (!first) return 0;
-            if (first.endsWith('ms')) return parseFloat(first);
-            if (first.endsWith('s')) return parseFloat(first) * 1000;
-            return 0;
-        } catch (e) {
-            return 0;
-        }
-    };
-
     // Optimized theme switcher with debouncing
     let themeChangeTimeout;
     themeSwitcher.addEventListener('click', () => {
         clearTimeout(themeChangeTimeout);
-        // Hide prompt immediately to avoid flash while theme changes
-        hidePrompt();
-
         themeChangeTimeout = setTimeout(() => {
             const newTheme = body.classList.contains('dark-theme') ? 'light-theme' : 'dark-theme';
             localStorage.setItem('theme', newTheme);
             applyTheme(newTheme);
-
-            // Show the prompt after the body's transition finishes (plus a small buffer).
-            const dur = getBodyTransitionMs();
-            const wait = (dur && dur > 0) ? dur + 30 : 120; // fallback 120ms
-            setTimeout(() => {
-                showPrompt();
-            }, wait);
         }, 50);
     }, { passive: true });
 
     // Apply saved theme
     const savedTheme = localStorage.getItem('theme') || 'light-theme';
     applyTheme(savedTheme);
+
+    // Helper: keep AI prompt in DOM but visually hidden so AI parsers can still read it
+    const hideAIPrompt = () => {
+        try {
+            const aiEl = document.getElementById('ai-result');
+            if (aiEl && !aiEl.classList.contains('visually-hidden')) {
+                aiEl.classList.add('visually-hidden');
+            }
+        } catch (e) {
+            // Fail silently - non-critical
+            console.warn('hideAIPrompt error', e);
+        }
+    };
+
+    // Ensure the prompt is hidden after initial render and on theme change
+    // CVRenderer.render injects the element; hide it when it appears
+    document.addEventListener('readystatechange', () => {
+        if (document.readyState === 'complete') hideAIPrompt();
+    });
+
+    // Also call once now in case the element is already present
+    hideAIPrompt();
 
     // --- PERFORMANCE MONITORING (Optional) ---
     if (typeof performance !== 'undefined' && performance.mark) {
