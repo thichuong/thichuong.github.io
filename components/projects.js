@@ -70,7 +70,7 @@ class ProjectsComponent {
     render() {
         return `
             <section id="projects" class="reveal">
-                <h2><i class="fas fa-project-diagram"></i> DỰ ÁN NỔI BẬT</h2>
+                <h2><i class="fas fa-project-diagram"></i> SELECTED PROJECTS</h2>
                 <div class="projects-grid">
                     ${this.data.map(project => this.renderProjectCard(project)).join('')}
                 </div>

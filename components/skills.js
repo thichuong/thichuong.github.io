@@ -27,10 +27,10 @@ class SkillsComponent {
     render() {
         return `
             <section id="skills">
-                <h2><i class="fas fa-cogs"></i> KỸ NĂNG</h2>
+                <h2><i class="fas fa-cogs"></i> SKILLS</h2>
                 
                 <div class="skills-category">
-                    <h3><i class="fas fa-code"></i> Ngôn ngữ lập trình</h3>
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
                     ${this.data.programming.map(skill => this.renderProgressBar(skill)).join('')}
                 </div>
 

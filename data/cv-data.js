@@ -77,14 +77,14 @@ const CVData = {
         }
     ],
 
-    summary: `Là một Kỹ sư Dữ liệu và Nhà phát triển Phần mềm, tôi chuyên sâu vào việc ứng dụng các công nghệ AI tiên tiến để giải quyết những bài toán phức tạp. Với nền tảng vững chắc về phát triển phần mềm và kiến thức chuyên sâu từ chứng chỉ <strong>IBM AI Engineering</strong>, tôi có năng lực xây dựng, huấn luyện và triển khai các mô hình học máy hiệu quả. Kinh nghiệm của tôi trải dài từ Computer Vision, NLP cho đến các hệ thống AI tạo sinh (Generative AI), với mục tiêu mang lại giá trị và sự đột phá cho sản phẩm.`,
+    summary: `I am a Data Engineer and Software Developer specializing in applying advanced AI technologies to solve complex problems. With a strong foundation in software development and in-depth knowledge from the <strong>IBM AI Engineering</strong> certificate, I am capable of building, training, and deploying effective machine learning models. My experience spans Computer Vision, NLP, and generative AI systems, with the goal of delivering value and breakthrough results for products.`,
 
     projects: [
         {
             title: "Crypto Dashboard & AI Report Generator",
             status: "active",
-            description: "Hệ thống dashboard toàn diện tích hợp LangGraph Multi-Agent để phân tích thị trường tiền mã hóa và tự động tạo báo cáo thông minh. Ứng dụng sử dụng kiến trúc Agent-based với LangGraph orchestration để cung cấp insights sâu sắc và báo cáo tự động cho nhà đầu tư.",
-            highlight: "🤖 LangGraph Multi-Agent System: Triển khai hệ thống multi-agent với LangGraph để orchestrate các AI agents chuyên biệt - Market Analysis Agent, Report Generation Agent. Tích hợp Google Gemini API với workflow automation để tạo ra báo cáo phân tích thị trường chi tiết và có thể hành động.",
+            description: "A comprehensive dashboard system integrating a LangGraph multi-agent architecture to analyze cryptocurrency markets and automatically generate intelligent reports. The application uses an agent-based design with LangGraph orchestration to provide deep insights and automated reporting for investors.",
+            highlight: "🤖 LangGraph Multi-Agent System: Implemented a multi-agent system using LangGraph to orchestrate specialized AI agents — Market Analysis Agent and Report Generation Agent. Integrated Google Gemini API with workflow automation to produce detailed, actionable market analysis reports.",
             technologies: ["Python", "LangGraph", "Google Gemini API", "Flask","SQLAlchemy", "JavaScript"],
             links: {
                 github: "https://github.com/thichuong/Crypto-Dashboard-and-AI-ReportGenerator",
@@ -94,7 +94,7 @@ const CVData = {
         {
             title: "MobileAppTranslate",
             dateRange: "10/2022 - 02/2023",
-            description: "Ứng dụng di động dịch thuật đa năng, tích hợp nhận dạng giọng nói, OCR thời gian thực và nhận diện vật thể.",
+            description: "A versatile mobile translation app integrating speech recognition, real-time OCR, and object detection.",
             features: [
                 { icon: "fas fa-microphone", text: "Speech Recognition" },
                 { icon: "fas fa-camera", text: "Real-time OCR" },
@@ -108,9 +108,9 @@ const CVData = {
         {
             title: "Game Mario Bros 3 Clone",
             dateRange: "10/2020 - 01/2021",
-            description: "Dự án game Mario phát triển bằng C++ và DirectX 10, tái hiện lại các cơ chế gameplay kinh điển với đồ họa và âm thanh chất lượng cao.",
+            description: "A Mario-style game developed in C++ using DirectX 10, recreating classic gameplay mechanics with high-quality graphics and sound.",
             achievements: [
-                { icon: "fas fa-trophy", text: "Physics Engine tự phát triển" }
+                { icon: "fas fa-trophy", text: "Custom-built physics engine" }
             ],
             technologies: ["C++", "DirectX 10", "Game Development"],
             links: {
@@ -120,7 +120,7 @@ const CVData = {
         {
             title: "Paint Application",
             dateRange: "08/2019 - 01/2020",
-            description: "Ứng dụng vẽ tương tự Microsoft Paint với giao diện thân thiện và các công cụ vẽ đa dạng, xây dựng trên nền tảng WinForms.",
+            description: "A painting application similar to Microsoft Paint with a user-friendly interface and a variety of drawing tools, built on WinForms.",
             features: [
                 { icon: "fas fa-palette", text: "Multi-layer Support" },
                 { icon: "fas fa-brush", text: "Custom Brushes" }

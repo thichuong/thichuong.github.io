@@ -7,7 +7,7 @@ class EducationComponent {
     render() {
         return `
             <section id="education" class="reveal">
-                <h2><i class="fas fa-user-graduate"></i> HỌC VẤN</h2>
+                <h2><i class="fas fa-user-graduate"></i> EDUCATION</h2>
                 ${this.data.map(edu => `
                     <div class="education">
                         <h3>${edu.institution}</h3>
@@ -37,7 +37,7 @@ class CertificatesComponent {
     render() {
         return `
             <section id="certificates" class="reveal">
-                <h2><i class="fas fa-certificate"></i> CHỨNG CHỈ</h2>
+                <h2><i class="fas fa-certificate"></i> CERTIFICATES</h2>
                 ${this.data.map(cert => `
                     <div class="certificate">
                         <h3><a href="${cert.url}" target="_blank">${cert.name}</a></h3>

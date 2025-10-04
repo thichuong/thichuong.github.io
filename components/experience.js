@@ -7,7 +7,7 @@ class ExperienceComponent {
     render() {
         return `
             <section id="experience" class="reveal">
-                <h2><i class="fas fa-briefcase"></i> KINH NGHIỆM LÀM VIỆC</h2>
+                <h2><i class="fas fa-briefcase"></i> WORK EXPERIENCE</h2>
                 ${this.data.map(job => `
                     <div class="job">
                         <h3>${job.position}</h3>

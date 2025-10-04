@@ -7,7 +7,7 @@ class SummaryComponent {
     render() {
         return `
             <section id="summary" class="reveal">
-                <h2><i class="fas fa-user-alt"></i> GIỚI THIỆU</h2>
+                <h2><i class="fas fa-user-alt"></i> SUMMARY</h2>
                 <p>${this.data}</p>
             </section>
         `;

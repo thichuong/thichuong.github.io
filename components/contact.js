@@ -7,7 +7,7 @@ class ContactComponent {
     render() {
         return `
             <section id="contact">
-                <h2><i class="fas fa-address-card"></i> LIÊN HỆ</h2>
+                <h2><i class="fas fa-address-card"></i> CONTACT</h2>
                 <ul class="contact-info">
                     <li><i class="fas fa-map-marker-alt"></i><span>${this.data.address}</span></li>
                     <li><i class="fas fa-envelope"></i><a href="mailto:${this.data.email}">${this.data.email}</a></li>
