@@ -114,7 +114,7 @@ class CVRenderer {
                     </div>
 
                     <section id="contact">
-                        <h2><i class="fas fa-address-card"></i> LIÊN HỆ</h2>
+                        <h2><i class="fas fa-address-card"></i> CONTACT</h2>
                         <ul class="contact-info">
                             <li><i class="fas fa-map-marker-alt"></i><span>${data.personal.contact.address}</span></li>
                             <li><i class="fas fa-envelope"></i><a href="mailto:${data.personal.contact.email}">${data.personal.contact.email}</a></li>
@@ -124,10 +124,10 @@ class CVRenderer {
                     </section>
 
                     <section id="skills">
-                        <h2><i class="fas fa-cogs"></i> KỸ NĂNG</h2>
+                        <h2><i class="fas fa-cogs"></i> SKILLS</h2>
                         
                         <div class="skills-category">
-                            <h3><i class="fas fa-code"></i> Ngôn ngữ lập trình</h3>
+                            <h3><i class="fas fa-code"></i> Programming Languages</h3>
                             ${data.skills.programming.map(skill => this.renderSkillProgressBar(skill)).join('')}
                         </div>
 
@@ -154,7 +154,7 @@ class CVRenderer {
                     </section>
                     
                     <section id="education" class="reveal">
-                        <h2><i class="fas fa-user-graduate"></i> HỌC VẤN</h2>
+                        <h2><i class="fas fa-user-graduate"></i> EDUCATION</h2>
                         ${data.education.map(edu => `
                             <div class="education">
                                 <h3>${edu.institution}</h3>
@@ -168,7 +168,7 @@ class CVRenderer {
                     </section>
 
                     <section id="certificates" class="reveal">
-                        <h2><i class="fas fa-certificate"></i> CHỨNG CHỈ</h2>
+                        <h2><i class="fas fa-certificate"></i> CERTIFICATES</h2>
                         ${data.certificates.map(cert => `
                             <div class="certificate">
                                 <h3><a href="${cert.url}" target="_blank">${cert.name}</a></h3>
@@ -180,12 +180,12 @@ class CVRenderer {
 
                 <main class="right-column">
                     <section id="summary" class="reveal">
-                        <h2><i class="fas fa-user-alt"></i> GIỚI THIỆU</h2>
+                        <h2><i class="fas fa-user-alt"></i> SUMMARY</h2>
                         <p>${data.summary}</p>
                     </section>
 
                     <section id="experience" class="reveal">
-                        <h2><i class="fas fa-briefcase"></i> KINH NGHIỆM LÀM VIỆC</h2>
+                        <h2><i class="fas fa-briefcase"></i> WORK EXPERIENCE</h2>
                         ${data.experience.map(job => `
                             <div class="job">
                                 <h3>${job.position}</h3>
@@ -200,7 +200,7 @@ class CVRenderer {
                     </section>
 
                     <section id="projects" class="reveal">
-                        <h2><i class="fas fa-project-diagram"></i> DỰ ÁN NỔI BẬT</h2>
+                        <h2><i class="fas fa-project-diagram"></i> SELECTED PROJECTS</h2>
                         <div class="projects-grid">
                             ${data.projects.map(project => this.renderProjectCard(project)).join('')}
                         </div>
