@@ -94,7 +94,7 @@ const CVData = {
             technologies: ["Python", "LangGraph", "Google Gemini API", "Flask","SQLAlchemy", "JavaScript"],
             links: {
                 github: "https://github.com/thichuong/Crypto-Dashboard-and-AI-ReportGenerator",
-                demo: "https://crypto-dashboard-app-thichuong.vercel.app"
+                demo: "https://cryptodashboard.me/"
             }
         },
         {
