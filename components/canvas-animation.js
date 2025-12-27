@@ -81,14 +81,15 @@ class CanvasAnimation {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         // Optimized font rendering
-        const fontSize = Math.min(this.canvas.width * 0.8, 200);
-        const yOffset = this.canvas.height * 0.05;
+        const fontSize = Math.min(this.canvas.width * 0.7, 180); // Slightly smaller for better fit
+        const yOffset = 0; // Removed offset to center vertically
 
         this.ctx.fillStyle = 'white';
-        this.ctx.font = `900 ${fontSize}px 'Poppins', Arial, sans-serif`;
+        this.ctx.font = `900 ${fontSize}px 'Inter', 'Poppins', Arial, sans-serif`; // Changed to Inter
         this.ctx.textAlign = 'center';
-        this.ctx.textBaseline = 'middle';
-        this.ctx.fillText('C', this.canvas.width / 2, (this.canvas.height / 2) + yOffset);
+        this.ctx.textBaseline = 'middle'; // accurate vertical center
+        // Adjust vertical position slightly upwards to visually center the C
+        this.ctx.fillText('C', this.canvas.width / 2, (this.canvas.height / 2) + 10);
 
         const textCoordinates = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
