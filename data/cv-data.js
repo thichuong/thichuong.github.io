@@ -87,11 +87,43 @@ const CVData = {
 
     projects: [
         {
+            title: "🐉 Chinese Chess PWA (Rust & WebAssembly)",
+            status: "active",
+            description: "A high-performance Chinese Chess application built with Rust and WebAssembly, featuring a customizable AI engine with advanced search and pruning algorithms.",
+            highlight: "🧠 Advanced AI Engine: Implemented Alpha-Beta search with Transposition Table, MVV-LVA, Killer Move, History Heuristic, and advanced pruning techniques like LMR, ProbCut, and Singular Extension. Developed using Leptos framework for a reactive and responsive web interface.",
+            features: [
+                { icon: "fas fa-robot", text: "Advanced AI Engine" },
+                { icon: "fas fa-mobile-alt", text: "PWA & Responsive" },
+                { icon: "fas fa-bolt", text: "High-performance WASM" }
+            ],
+            technologies: ["Rust", "WebAssembly", "Leptos", "Web Workers", "PWA"],
+            links: {
+                github: "https://github.com/thichuong/GameCoTuong",
+                demo: "https://thichuong.github.io/GameCoTuong/"
+            }
+        },
+        {
+            title: "🔫 Ambidex Survival (Rust & Bevy Engine)",
+            status: "active",
+            description: "A high-octane 2D dual-stick survival shooter built with Rust and the Bevy engine, featuring a unique independent dual-hand combat system.",
+            highlight: "🚀 Technical Architecture: Built using a decoupled ECS and plugin-based architecture with Bevy 0.17. Implemented high-performance reactive logic using observers, event-driven communication, and a custom responsive UI scaling system. Leverages Bevy Rapier for 2D physics.",
+            features: [
+                { icon: "fas fa-hands", text: "Ambidex Combat System" },
+                { icon: "fas fa-cubes", text: "Decoupled ECS Design" },
+                { icon: "fas fa-desktop", text: "Responsive UI Scaling" }
+            ],
+            technologies: ["Rust", "Bevy Engine", "ECS", "WASM", "Rapier 2D"],
+            links: {
+                github: "https://github.com/thichuong/ambidex_survival",
+                demo: "https://thichuong.github.io/ambidex_survival/"
+            }
+        },
+        {
             title: "Crypto Dashboard & AI Report Generator",
             status: "active",
             description: "A comprehensive dashboard system integrating a LangGraph multi-agent architecture to analyze cryptocurrency markets and automatically generate intelligent reports. The application uses an agent-based design with LangGraph orchestration to provide deep insights and automated reporting for investors.",
             highlight: "🤖 LangGraph Multi-Agent System: Implemented a multi-agent system using LangGraph to orchestrate specialized AI agents — Market Analysis Agent and Report Generation Agent. Integrated Google Gemini API with workflow automation to produce detailed, actionable market analysis reports.",
-            technologies: ["Python", "LangGraph", "Google Gemini API", "Flask","SQLAlchemy", "JavaScript"],
+            technologies: ["Python", "LangGraph", "Google Gemini API", "Flask", "SQLAlchemy", "JavaScript"],
             links: {
                 github: "https://github.com/thichuong/Crypto-Dashboard-and-AI-ReportGenerator",
                 demo: "https://cryptodashboard.me/"
