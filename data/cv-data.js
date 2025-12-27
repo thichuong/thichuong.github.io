@@ -15,6 +15,7 @@ const CVData = {
         programming: [
             { name: "Python", level: 95 },
             { name: "JavaScript", level: 90 },
+            { name: "Rust", level: 85 },
             { name: "C#", level: 85 },
             { name: "C++", level: 80 }
         ],
@@ -32,6 +33,8 @@ const CVData = {
         ],
         frameworks: [
             { name: ".NET", level: "expert" },
+            { name: "Rust Bevy", level: "advanced" },
+            { name: "Leptos", level: "advanced" },
             { name: "Flask", level: "advanced" },
             { name: "Flutter", level: "advanced" },
             { name: "ASP.NET", level: "intermediate" },
