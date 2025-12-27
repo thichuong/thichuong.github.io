@@ -13,10 +13,10 @@ class AnimationManager {
     // Initialize only when needed
     init() {
         if (this.isInitialized) return;
-        
+
         this.setupRevealAnimations();
         this.setupSkillAnimations();
-        this.setupCardHoverEffects();
+        this.setupCardMouseTracking();
         this.setupTypingEffect();
         this.isInitialized = true;
     }
@@ -61,13 +61,13 @@ class AnimationManager {
                 if (entry.isIntersecting) {
                     const progressBar = entry.target;
                     const targetWidth = progressBar.getAttribute('data-width');
-                    
+
                     // Use CSS transitions instead of JavaScript animation
                     requestAnimationFrame(() => {
                         progressBar.style.transition = 'width 1s ease-out';
                         progressBar.style.width = targetWidth + '%';
                     });
-                    
+
                     skillObserver.unobserve(progressBar);
                 }
             });
@@ -78,23 +78,20 @@ class AnimationManager {
         });
     }
 
-    // Optimized card hover effects using CSS transforms
-    setupCardHoverEffects() {
+    // Card mouse tracking for glow effect
+    setupCardMouseTracking() {
         const projectCards = document.querySelectorAll('.project-card');
         if (projectCards.length === 0) return;
 
         projectCards.forEach(card => {
-            card.addEventListener('mouseenter', this.handleCardHover.bind(this), { passive: true });
-            card.addEventListener('mouseleave', this.handleCardLeave.bind(this), { passive: true });
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            }, { passive: true });
         });
-    }
-
-    handleCardHover(event) {
-        event.target.style.transform = 'translateY(-5px) scale(1.01)';
-    }
-
-    handleCardLeave(event) {
-        event.target.style.transform = 'translateY(0) scale(1)';
     }
 
     // Optimized typing effect with better performance
@@ -104,20 +101,20 @@ class AnimationManager {
 
         const originalText = titleElement.textContent;
         titleElement.textContent = '';
-        
+
         let i = 0;
         const typingEffect = () => {
             if (i < originalText.length) {
                 titleElement.textContent += originalText.charAt(i);
                 i++;
-                
+
                 // Use requestAnimationFrame for smoother animation
                 if (i < originalText.length) {
                     setTimeout(() => requestAnimationFrame(typingEffect), 80);
                 }
             }
         };
-        
+
         // Start typing effect after a delay
         setTimeout(() => requestAnimationFrame(typingEffect), 1200);
     }
