@@ -11,6 +11,7 @@ class CVRenderer {
 
     // Helper functions
     formatDate(dateString) {
+        if (dateString.toLowerCase() === 'present') return 'Present';
         const [year, month] = dateString.split('-');
         return `${month}/${year}`;
     }
@@ -30,33 +31,33 @@ class CVRenderer {
     }
 
     renderSkillTags(skills) {
-        return skills.map(skill => 
+        return skills.map(skill =>
             `<span class="skill-tag ${skill.level}">${skill.name}</span>`
         ).join('');
     }
 
     renderProjectCard(project) {
-        const headerContent = project.status 
+        const headerContent = project.status
             ? `<div class="project-status"><span class="status-badge ${project.status}">${project.status}</span></div>`
             : `<div class="project-date"><i class="fas fa-calendar"></i> ${project.dateRange}</div>`;
 
-        const featuresContent = project.features 
+        const featuresContent = project.features
             ? `<div class="project-features">
-                ${project.features.map(feature => 
-                    `<div class="feature-item"><i class="${feature.icon}"></i> ${feature.text}</div>`
-                ).join('')}
+                ${project.features.map(feature =>
+                `<div class="feature-item"><i class="${feature.icon}"></i> ${feature.text}</div>`
+            ).join('')}
                </div>`
             : '';
 
-        const achievementsContent = project.achievements 
+        const achievementsContent = project.achievements
             ? `<div class="project-achievements">
-                ${project.achievements.map(achievement => 
-                    `<div class="achievement-item"><i class="${achievement.icon}"></i> ${achievement.text}</div>`
-                ).join('')}
+                ${project.achievements.map(achievement =>
+                `<div class="achievement-item"><i class="${achievement.icon}"></i> ${achievement.text}</div>`
+            ).join('')}
                </div>`
             : '';
 
-        const highlightContent = project.highlight 
+        const highlightContent = project.highlight
             ? `<div class="project-highlight"><strong>${project.highlight}</strong></div>`
             : '';
 
@@ -72,7 +73,7 @@ class CVRenderer {
                 live: 'Live Site'
             };
             const linkClass = type === 'github' ? 'primary' : 'secondary';
-            
+
             return `<a href="${url}" class="project-link ${linkClass}" target="_blank">
                 <i class="${icons[type]}"></i> ${labels[type]}
             </a>`;
@@ -185,7 +186,7 @@ class CVRenderer {
                     </section>
 
                     <section id="experience" class="reveal">
-                        <h2><i class="fas fa-briefcase"></i> WORK EXPERIENCE</h2>
+                        <h2><i class="fas fa-briefcase"></i> INDEPENDENT AI & SOFTWARE DEVELOPER</h2>
                         ${data.experience.map(job => `
                             <div class="job">
                                 <h3>${job.position}</h3>
@@ -208,7 +209,7 @@ class CVRenderer {
                 </main>
             </div>
         `;
-        
+
         // Use requestIdleCallback for better performance
         const renderContent = () => {
             const contentDiv = document.getElementById('cv-content');

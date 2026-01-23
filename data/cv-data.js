@@ -80,9 +80,9 @@ const CVData = {
 
     experience: [
         {
-            position: "Freelancer",
+            position: "Independent AI & Software Developer",
             startDate: "2023-08",
-            endDate: "2025-07"
+            endDate: "Present"
         }
     ],
 
