@@ -92,14 +92,14 @@ const CVData = {
         {
             title: "🐉 Chinese Chess PWA (Rust & WebAssembly)",
             status: "active",
-            description: "A high-performance Chinese Chess application built with Rust and WebAssembly, featuring a customizable AI engine with advanced search and pruning algorithms.",
-            highlight: "🧠 Advanced AI Engine: Implemented Alpha-Beta search with Transposition Table, MVV-LVA, Killer Move, History Heuristic, and advanced pruning techniques like LMR, ProbCut, and Singular Extension. Developed using Leptos framework for a reactive and responsive web interface.",
+            description: "A modern Chinese Chess (Xiangqi) PWA built with Rust and WebAssembly, featuring a high-performance AI engine, multiple play modes (PvC, CvC, PvP), and cross-platform support.",
+            highlight: "🚀 Full-Stack Architecture: Built with Leptos (WASM) and Axum (WebSocket). Implemented a sophisticated AI engine utilizing Alpha-Beta search with Transposition Tables and advanced pruning techniques (LMR, ProbCut, Singular Extension). Features a custom 'Optimistic Relay with Distributed Validation' strategy for low-latency, secure multiplayer gameplay.",
             features: [
-                { icon: "fas fa-robot", text: "Advanced AI Engine" },
-                { icon: "fas fa-mobile-alt", text: "PWA & Responsive" },
-                { icon: "fas fa-bolt", text: "High-performance WASM" }
+                { icon: "fas fa-robot", text: "Customizable AI Engine" },
+                { icon: "fas fa-network-wired", text: "Multiplayer w/ Distributed Validation" },
+                { icon: "fas fa-mobile-alt", text: "Cross-platform PWA" }
             ],
-            technologies: ["Rust", "WebAssembly", "Leptos", "Web Workers", "PWA"],
+            technologies: ["Rust", "WebAssembly", "Leptos", "Axum", "Web Workers", "PWA"],
             links: {
                 github: "https://github.com/thichuong/GameCoTuong",
                 demo: "https://thichuong.github.io/GameCoTuong/"
