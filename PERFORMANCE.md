@@ -3,54 +3,56 @@
 ## Các tối ưu hóa đã thực hiện để giảm bớt xử lý khi tải CV:
 
 ### 1. **Tách Module và Lazy Loading**
-- **CV Renderer** (`components/cv-renderer.js`): Tách logic render CV ra file riêng
-- **Animation Manager** (`components/animation-manager.js`): Quản lý animations một cách tối ưu
-- **Canvas Animation** (`components/canvas-animation.js`): Canvas animation với lazy loading
+- **CV Renderer** (`components/cv-renderer.js`): Logic render CV tập trung, hỗ trợ render template string hiệu quả.
+- **Animation Manager** (`components/animation-manager.js`): Quản lý animations với Intersection Observer.
+- **Canvas Animation** (`components/canvas-animation.js`): Canvas animation được tách riêng và lazy loaded.
 
-### 2. **Tối ưu hóa DOM và Rendering**
-- Sử dụng `requestIdleCallback()` cho các tác vụ không quan trọng
-- Sử dụng `DocumentFragment` để giảm reflow/repaint
-- Implement Intersection Observer để chỉ animate khi element visible
-- Giảm số lượng particles trong canvas animation (từ không giới hạn xuống 800)
+### 2. **Kiến trúc & UX Optimization (Mới)**
+- **Section-based Navigation**: Chuyển đổi từ trang cuộn dài sang mô hình SPA (Single Page Application) với các "trang" riêng biệt.
+  - Giảm `Paint` workload cho trình duyệt vì chỉ hiển thị một section tại một thời điểm.
+  - Loại bỏ hoàn toàn Layout Thrashing do cuộn trang dài gây ra.
+  - Cải thiện trải nghiệm người dùng (UX) với chuyển đổi tức thì.
+- **Virtual DOM like behavior**: Sử dụng template literals để tái tạo DOM nhanh chóng khi cần thiết (dù hiện tại render một lần).
 
-### 3. **Tối ưu hóa Performance**
-- **FPS Limiting**: Giới hạn canvas animation ở 30 FPS thay vì 60 FPS
-- **Event Listeners**: Sử dụng `passive: true` cho smooth scrolling
-- **Debouncing**: Áp dụng debouncing cho resize events và theme switching
-- **Hardware Acceleration**: Bật GPU acceleration với `transform: translateZ(0)`
+### 3. **Tối ưu hóa DOM và Rendering**
+- Sử dụng `requestIdleCallback()` cho các tác vụ khởi tạo không quan trọng (Animations, Theme logic).
+- Implement `Intersection Observer` để chỉ animate các element bên trong section đang active.
+- Giảm số lượng particles trong canvas animation để phù hợp với từng thiết bị (Responsive performance).
 
-### 4. **Memory Management**
-- Cleanup functions cho animations
-- Unobserve elements sau khi animation hoàn thành
-- Giảm density và size của particles
-- Limiting max particles để tránh memory leak
+### 4. **Tối ưu hóa Performance**
+- **FPS Limiting**: Canvas animation được tối ưu để không chiếm dụng quá nhiều resources.
+- **Debouncing**: Áp dụng cho các sự kiện resize và click liên tục (ví dụ: theme switcher).
+- **GPU Acceleration**: Sử dụng `transform` và `opacity` cho các animations để kích hoạt Hardware Acceleration.
+- **No Scroll Listeners**: Loại bỏ các sự kiện cuộn (scroll events) đắt đỏ nhờ chuyển sang mô hình Section-based.
 
-### 5. **CSS Optimizations**
-- `will-change` properties cho elements cần animation
-- `contain` properties để isolated layout/style/paint
-- `content-visibility: auto` cho better rendering performance
-- Optimize text rendering với `text-rendering: optimizeSpeed`
+### 5. **Memory Management**
+- Cleanup functions cho animations khi chuyển đổi tab/section (nếu cần).
+- Sử dụng biến CSS (CSS Variables) để quản lý theme, giảm overhead khi switch theme.
+- Giới hạn số lượng DOM elements được render bằng cách ẩn các section không hoạt động (`display: none`).
 
-### 6. **Loading Strategy**
-- **Critical Path**: Load CV content ngay lập tức
-- **Animations**: Load sau với delay để không block main thread
-- **Canvas**: Load cuối cùng với 500ms delay
-- **Progressive Enhancement**: Sử dụng fallbacks cho các tính năng modern
+### 6. **CSS Optimizations**
+- `will-change` properties cho elements cần critical animation.
+- Modern Layouts (Grid/Flexbox) thay vì float/position tuyệt đối cồng kềnh.
+- `content-visibility` (nếu browser hỗ trợ) giúp browser skip rendering off-screen content.
+
+### 7. **Loading Strategy**
+- **Critical Path**: Tải khung HTML và CSS chính trước.
+- **Data Injection**: JS inject dữ liệu từ `cv-data.js` ngay khi DOM ready.
+- **Deferred Scripts**: Các script logic và animation được set `defer` hoặc load qua idle callbacks.
+- **Canvas**: Load cuối cùng (delay 500ms) để ưu tiên First Input Delay (FID).
 
 ## Kết quả Performance:
 
-### Trước tối ưu hóa:
-- Initial render: ~300-500ms
-- Canvas animation: 60 FPS với nhiều particles
-- Memory usage: Cao do không cleanup
-- JavaScript blocking main thread
+### Trước tối ưu hóa (Scroll-based):
+- Initial render: Tốt, nhưng Layout Shift cao khi cuộn.
+- Interaction: Có độ trễ khi cuộn trang dài nhiều nội dung.
+- JavaScript blocking: Main thread bị block khi load tất cả script cùng lúc.
 
-### Sau tối ưu hóa:
-- Initial render: ~100-200ms (giảm 50-60%)
-- Canvas animation: 30 FPS với 800 particles tối đa
-- Memory usage: Thấp hơn với proper cleanup
-- Non-blocking loading với idle callbacks
-- Smooth animations với hardware acceleration
+### Sau tối ưu hóa (Section-based):
+- **Navigation**: Tức thì (Instant), không có layout shift.
+- **FPS**: Ổn định ở mức cao do browser chỉ phải paint vùng nhìn thấy nhỏ hơn.
+- **Resource Usage**: CPU/GPU usage giảm đáng kể khi user đứng yên tại một section.
+- **Core Web Vitals**: Cải thiện LCP (Largest Contentful Paint) và CLS (Cumulative Layout Shift).
 
 ## Cách sử dụng:
 
