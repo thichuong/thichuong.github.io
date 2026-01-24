@@ -106,6 +106,22 @@ const CVData = {
             }
         },
         {
+            title: "📦 Multi-Tier Cache (Rust Crate)",
+            status: "published",
+            description: "A production-ready multi-tier caching library for Rust, combining fast in-memory (Moka) with persistent distributed (Redis) caching. Published on crates.io with 16,829+ RPS throughput.",
+            highlight: "🚀 High Performance: Features dynamic multi-tier architecture (L1+L2+L3+...), cross-instance cache invalidation via Redis Pub/Sub, pluggable backends (DashMap, Memcached, RocksDB), and cache stampede protection achieving 99.6% latency reduction (534ms → 5.2ms).",
+            features: [
+                { icon: "fas fa-layer-group", text: "Multi-Tier Architecture (L1+L2+L3+...)" },
+                { icon: "fas fa-sync-alt", text: "Cross-Instance Invalidation" },
+                { icon: "fas fa-shield-alt", text: "Cache Stampede Protection" }
+            ],
+            technologies: ["Rust", "Redis", "Moka", "Pub/Sub", "Async"],
+            links: {
+                github: "https://github.com/thichuong/multi-tier-cache",
+                crate: "https://crates.io/crates/multi-tier-cache"
+            }
+        },
+        {
             title: "🔫 Ambidex Survival (Rust & Bevy Engine)",
             status: "active",
             description: "A high-octane 2D dual-stick survival shooter built with Rust and the Bevy engine, featuring a unique independent dual-hand combat system.",

@@ -206,12 +206,14 @@ class CVRenderer {
             const icons = {
                 github: 'fab fa-github',
                 demo: 'fas fa-external-link-alt',
-                live: 'fas fa-globe'
+                live: 'fas fa-globe',
+                crate: 'fas fa-cube'
             };
             const labels = {
                 github: 'GitHub',
                 demo: 'Live Demo',
-                live: 'Live Site'
+                live: 'Live Site',
+                crate: 'View Crate'
             };
             const linkClass = type === 'github' ? 'btn-outline' : 'btn-primary';
 
