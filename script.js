@@ -39,21 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'dark-theme';
     applyTheme(savedTheme);
 
-    // --- SMOOTH SCROLL FOR NAVIGATION ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
+    // --- SMOOTH SCROLL REMOVED ---
+    // Navigation is now page-based (handled in cv-renderer.js)
 
     // --- REVEAL ANIMATIONS ON SCROLL ---
     const revealElements = document.querySelectorAll('.reveal');

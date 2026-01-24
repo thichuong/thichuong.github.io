@@ -104,7 +104,7 @@ body.dark-theme {
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     scroll-padding-top: var(--nav-height);
 }
 
@@ -504,11 +504,17 @@ body.dark-theme .nav-bar.scrolled {
 }
 
 /* ---- CONTENT SECTIONS ---- */
-.content-section {
+.content-section,
+.hero-section {
+    display: none;
     min-height: 100vh;
     padding: 6rem 2rem;
-    display: flex;
     align-items: center;
+}
+
+.content-section.section-active,
+.hero-section.section-active {
+    display: flex;
 }
 
 .section-container {
@@ -1109,6 +1115,9 @@ body.dark-theme .nav-bar.scrolled {
 
     .content-section {
         padding: 4rem 1rem;
+    }
+
+    .content-section.section-active {
         min-height: auto;
     }
 

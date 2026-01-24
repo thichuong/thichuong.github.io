@@ -56,12 +56,12 @@ class CVRenderer {
                     <p class="hero-title">${data.personal.title}</p>
                     <p class="hero-summary">${data.summary}</p>
                     <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary">
+                        <button class="btn btn-primary nav-section-btn" data-section="projects">
                             <i class="fas fa-folder-open"></i> View Projects
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
+                        </button>
+                        <button class="btn btn-secondary nav-section-btn" data-section="contact">
                             <i class="fas fa-paper-plane"></i> Contact Me
-                        </a>
+                        </button>
                     </div>
                     <div class="hero-social">
                         <a href="${data.personal.contact.github}" target="_blank" class="social-link" aria-label="GitHub">
@@ -74,10 +74,6 @@ class CVRenderer {
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
-                </div>
-                <div class="hero-scroll-indicator">
-                    <span>Scroll Down</span>
-                    <i class="fas fa-chevron-down"></i>
                 </div>
             </section>
         `;
@@ -413,11 +409,51 @@ class CVRenderer {
         }
     }
 
+    // Show a specific section and hide others
+    showSection(sectionId) {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Hide all sections, show target section
+        sections.forEach(section => {
+            if (section.getAttribute('id') === sectionId) {
+                section.classList.add('section-active');
+            } else {
+                section.classList.remove('section-active');
+            }
+        });
+
+        // Update active nav link
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-section') === sectionId) {
+                link.classList.add('active');
+            }
+        });
+
+        // Animate skill bars when skills section is shown
+        if (sectionId === 'skills') {
+            setTimeout(() => {
+                const skillBars = document.querySelectorAll('.skill-progress');
+                skillBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    if (width) {
+                        bar.style.width = width + '%';
+                    }
+                });
+            }, 100);
+        }
+
+        // Scroll to top of page
+        window.scrollTo(0, 0);
+    }
+
     // Initialize navigation
     initNavigation() {
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
         const navLinks = document.querySelectorAll('.nav-link');
+        const navbar = document.getElementById('nav-bar');
 
         // Mobile menu toggle
         if (navToggle) {
@@ -427,57 +463,33 @@ class CVRenderer {
             });
         }
 
-        // Close menu on link click
+        // Nav link click handler - show section instead of scroll
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('data-section');
+                this.showSection(sectionId);
+
+                // Close mobile menu
                 navMenu.classList.remove('active');
                 navToggle.classList.remove('active');
             });
         });
 
-        // Active section detection on scroll
-        const sections = document.querySelectorAll('section[id]');
-
-        const observerCallback = (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const sectionId = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('data-section') === sectionId) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
+        // Hero CTA buttons click handler
+        const ctaButtons = document.querySelectorAll('.nav-section-btn');
+        ctaButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const sectionId = btn.getAttribute('data-section');
+                this.showSection(sectionId);
             });
-        };
-
-        const observer = new IntersectionObserver(observerCallback, {
-            threshold: 0.1,
-            rootMargin: '-100px 0px -40% 0px'
         });
 
-        sections.forEach(section => observer.observe(section));
+        // Always show scrolled navbar style for page-based navigation
+        navbar.classList.add('scrolled');
 
-        // Navbar background on scroll + Home section detection
-        const navbar = document.getElementById('nav-bar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            // Highlight Home when near top of page
-            if (window.scrollY < 200) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('data-section') === 'home') {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
+        // Show home section by default
+        this.showSection('home');
     }
 }
 
