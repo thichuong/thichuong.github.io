@@ -63,18 +63,18 @@ const CVData = {
         {
             name: "IBM Data Science",
             url: "https://coursera.org/share/75ad6ec2a87cd7649f05993d738b5cfe",
-            date: "2023-06"
+            date: "2023-02"
         },
         {
             name: "IBM AI Engineering",
             url: "https://coursera.org/share/0bbe63bf39a4d44f5978396166de16d6",
-            date: "2025-07"
+            date: "2025-04"
         }
         ,
         {
             name: "IBM RAG and Agentic AI",
             url: "https://coursera.org/share/364f78d71cb70a0902066e3bc3ee9aae",
-            date: "2024-09"
+            date: "2025-07"
         }
     ],
 
