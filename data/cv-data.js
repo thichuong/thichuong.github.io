@@ -14,10 +14,10 @@ const CVData = {
     skills: {
         programming: [
             { name: "Python", level: 95 },
-            { name: "JavaScript", level: 90 },
-            { name: "Rust", level: 85 },
-            { name: "C#", level: 85 },
-            { name: "C++", level: 80 }
+            { name: "JavaScript", level: 85 },
+            { name: "Rust", level: 90 },
+            { name: "C#", level: 80 },
+            { name: "C++", level: 70 }
         ],
         ai: [
             { name: "Machine Learning", level: "expert" },

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Thi Thanh Chuong</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Data -->
+    <script src="data/cv-data.js"></script>
+
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #e0e7ff;
+            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            --accent: #06b6d4;
+            --success: #10b981;
+            
+            --text-main: #0f172a;
+            --text-muted: #334155;
+            --text-light: #64748b;
+            
+            --bg-screen: #f1f5f9;
+            --bg-page: #ffffff;
+            --border: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-card: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-screen);
+            color: var(--text-muted);
+            line-height: 1.6;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Toolbar Styles */
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toolbar-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toolbar-title i {
+            color: var(--primary);
+        }
+
+        .toolbar-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+            opacity: 0.95;
+        }
+
+        .btn-secondary {
+            background: white;
+            border-color: var(--border);
+            color: var(--text-muted);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-screen);
+            border-color: var(--text-light);
+            color: var(--text-main);
+        }
+
+        /* CV Container */
+        .cv-container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 2rem auto;
+            background: var(--bg-page);
+            padding: 20mm;
+            box-shadow: var(--shadow-card);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        /* Header Layout */
+        .cv-header {
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .header-right {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        #cv-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            margin-bottom: 0.25rem;
+        }
+
+        #cv-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Details */
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            font-size: 0.875rem;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .contact-list li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .contact-list li a:hover {
+            color: var(--primary);
+        }
+
+        .contact-list .icon {
+            color: var(--primary);
+            width: 16px;
+            text-align: center;
+        }
+
+        /* Professional Summary */
+        .summary-box {
+            margin-top: 1rem;
+            font-size: 0.925rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Main Bố Cục */
+        .cv-body {
+            display: grid;
+            grid-template-columns: 1.9fr 1.1fr;
+            gap: 2rem;
+        }
+
+        /* Section Layout */
+        .cv-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1.5px solid var(--border);
+            padding-bottom: 0.35rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        /* Items (Work, Projects, Edu) */
+        .experience-item,
+        .project-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .item-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .item-subtitle {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.35rem;
+        }
+
+        .item-date {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .item-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        /* Badges & Tags */
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.1rem 0.5rem;
+            border-radius: 100px;
+            letter-spacing: 0.05em;
+        }
+
+        .badge.active {
+            background-color: #ecfdf5;
+            color: var(--success);
+            border: 1px solid #a7f3d0;
+        }
+
+        .badge.published {
+            background-color: #ecfeff;
+            color: var(--accent);
+            border: 1px solid #a5f3fc;
+        }
+
+        /* Highlight Text */
+        .proj-highlight {
+            font-size: 0.825rem;
+            background-color: #f5f3ff;
+            border-left: 3px solid var(--primary);
+            padding: 0.5rem 0.75rem;
+            border-radius: 0 4px 4px 0;
+            margin: 0.4rem 0;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .proj-bullets {
+            list-style: none;
+            padding-left: 0.25rem;
+            margin: 0.4rem 0;
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .proj-bullets li {
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        .proj-bullets li i {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: var(--primary);
+            font-size: 0.75rem;
+        }
+
+        /* Tech stack tags */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .tech-tag {
+            font-size: 0.725rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background-color: var(--border-light);
+            border: 1px solid var(--border);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .proj-links {
+            font-size: 0.8rem;
+            margin-top: 0.4rem;
+        }
+
+        .proj-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .proj-links a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .proj-links a .link-url {
+            display: none;
+        }
+
+        /* Skills Column Styles */
+        .skill-group {
+            margin-bottom: 1rem;
+        }
+
+        .skill-group-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.025em;
+        }
+
+        .skill-bar-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.825rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .skill-percent {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .skill-bar-track {
+            height: 5px;
+            background-color: var(--border-light);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 3px;
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+
+        .skill-badge {
+            font-size: 0.725rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid transparent;
+        }
+
+        .skill-badge.expert {
+            background-color: #ecfdf5;
+            color: var(--success);
+            border-color: #d1fae5;
+        }
+
+        .skill-badge.advanced {
+            background-color: #eef2ff;
+            color: var(--primary);
+            border-color: #e0e7ff;
+        }
+
+        .skill-badge.intermediate {
+            background-color: #f8fafc;
+            color: var(--text-light);
+            border-color: var(--border);
+        }
+
+        /* Education & Certificate Items */
+        .education-item,
+        .certificate-item {
+            margin-bottom: 0.85rem;
+        }
+
+        .edu-institution,
+        .cert-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .cert-name a {
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .cert-name a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .edu-degree {
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .edu-date,
+        .cert-date {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Print Specifics overrides */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                font-size: 9.5pt;
+            }
+
+            .toolbar {
+                display: none !important;
+            }
+
+            .cv-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                border-radius: 0 !important;
+            }
+
+            /* Make sure grid stays double-column */
+            .cv-body {
+                display: grid;
+                grid-template-columns: 1.95fr 1.05fr;
+                gap: 1.5rem;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            /* Show project link URLs on print */
+            .proj-links a .link-url {
+                display: inline !important;
+                font-size: 0.75rem;
+                font-weight: 400;
+                color: var(--text-light);
+                margin-left: 0.15rem;
+            }
+
+            /* Force black/gray gradients/borders for printing consistency */
+            :root {
+                --primary: #1e3a8a;
+                --primary-dark: #1e3a8a;
+                --primary-light: #e2e8f0;
+                --text-main: #000000;
+                --text-muted: #1e293b;
+                --text-light: #475569;
+                --bg-page: #ffffff;
+                --border: #cbd5e1;
+            }
+
+            .proj-highlight {
+                background-color: #f8fafc;
+                border-left: 2.5px solid #1e3a8a;
+            }
+
+            .tech-tag {
+                border-color: #cbd5e1;
+                background-color: #f8fafc;
+            }
+
+            /* Control page-breaking nicely */
+            .cv-section,
+            .project-item,
+            .experience-item,
+            .education-item,
+            .certificate-item {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            h2.section-title {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+        }
+
+        /* Responsive on Screens smaller than 768px */
+        @media screen and (max-width: 768px) {
+            .cv-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            .cv-body {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-right {
+                text-align: left;
+            }
+
+            .contact-list li {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Screen-only Toolbar -->
+    <div class="toolbar no-print">
+        <div class="toolbar-title">
+            <i class="fas fa-file-pdf"></i>
+            <span>Thi Thanh Chuong - CV Preview</span>
+        </div>
+        <div class="toolbar-actions">
+            <a href="index.html" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Portfolio
+            </a>
+            <button onclick="window.print()" class="btn btn-primary">
+                <i class="fas fa-print"></i> Print CV / Save PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- CV Document Page -->
+    <div class="cv-container">
+        <!-- Header -->
+        <header class="cv-header">
+            <div class="header-top">
+                <div class="header-left">
+                    <h1 id="cv-name">Loading...</h1>
+                    <div id="cv-title">Loading...</div>
+                </div>
+                <div class="header-right">
+                    <ul class="contact-list" id="contact-list">
+                        <!-- Loaded dynamically -->
+                    </ul>
+                </div>
+            </div>
+            <div class="summary-box" id="cv-summary">
+                <!-- Loaded dynamically -->
+            </div>
+        </header>
+
+        <!-- Main Body -->
+        <div class="cv-body">
+            <!-- Left Column: Experience & Projects -->
+            <div class="cv-left-col">
+                <!-- Experience -->
+                <section class="cv-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Experience</span>
+                    </h2>
+                    <div id="experience-section-content">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </section>
+
+                <!-- Selected Projects -->
+                <section class="cv-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Selected Projects</span>
+                    </h2>
+                    <div id="projects-section-content">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Skills, Education & Certificates -->
+            <div class="cv-right-col">
+                <!-- Skills -->
+                <section class="cv-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-tools"></i>
+                        <span>Skills</span>
+                    </h2>
+                    
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Programming Languages</h3>
+                        <div id="prog-skills-content">
+                            <!-- Loaded dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">AI & Machine Learning</h3>
+                        <div class="skill-badges" id="ai-skills-content">
+                            <!-- Loaded dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Frameworks & Tools</h3>
+                        <div class="skill-badges" id="framework-skills-content">
+                            <!-- Loaded dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Database & APIs</h3>
+                        <div class="skill-badges" id="database-skills-content">
+                            <!-- Loaded dynamically -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="cv-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Education</span>
+                    </h2>
+                    <div id="education-section-content">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </section>
+
+                <!-- Certificates -->
+                <section class="cv-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificates</span>
+                    </h2>
+                    <div id="certificates-section-content">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to render content from cv-data.js -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof CVData === 'undefined') {
+                console.error('CVData is not loaded!');
+                return;
+            }
+
+            // Shorten URL helper
+            function shortenUrl(url) {
+                if (!url) return '';
+                return url.replace(/^https?:\/\/(www\.)?/, '');
+            }
+
+            // Date format helper (e.g. 2023-08 -> 08/2023)
+            function formatDate(dateStr) {
+                if (!dateStr) return '';
+                if (dateStr.toLowerCase() === 'present' || dateStr.toLowerCase() === 'hiện tại') return 'Present';
+                const parts = dateStr.split('-');
+                if (parts.length === 2) {
+                    return `${parts[1]}/${parts[0]}`;
+                }
+                return dateStr;
+            }
+
+            // 1. Render Personal Header Info
+            const personal = CVData.personal;
+            document.getElementById('cv-name').textContent = personal.name;
+            document.getElementById('cv-title').textContent = personal.title;
+            document.getElementById('cv-summary').innerHTML = CVData.summary;
+
+            // Render Contacts list
+            const contact = personal.contact;
+            const contactHTML = `
+                <li><a href="mailto:${contact.email}">${contact.email}</a> <i class="fas fa-envelope icon"></i></li>
+                <li><a href="${contact.github}" target="_blank">${shortenUrl(contact.github)}</a> <i class="fab fa-github icon"></i></li>
+                <li><a href="${contact.kaggle}" target="_blank">${shortenUrl(contact.kaggle)}</a> <i class="fab fa-kaggle icon"></i></li>
+                <li><span>${contact.address}</span> <i class="fas fa-map-marker-alt icon"></i></li>
+            `;
+            document.getElementById('contact-list').innerHTML = contactHTML;
+
+            // 2. Render Work Experience (Left Col)
+            const experienceHTML = CVData.experience.map(exp => `
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h4 class="item-title">${exp.position}</h4>
+                        <span class="item-date">${formatDate(exp.startDate)} - ${formatDate(exp.endDate)}</span>
+                    </div>
+                    ${exp.company ? `<div class="item-subtitle">${exp.company}</div>` : ''}
+                    ${exp.description ? `<p class="item-desc">${exp.description}</p>` : ''}
+                </div>
+            `).join('');
+            document.getElementById('experience-section-content').innerHTML = experienceHTML;
+
+            // 3. Render Projects (Left Col)
+            const projectsHTML = CVData.projects.map(proj => {
+                const statusBadge = proj.status ? `<span class="badge ${proj.status}">${proj.status}</span>` : '';
+                const dateRange = proj.dateRange ? `<span class="item-date">${proj.dateRange}</span>` : '';
+                
+                // Bullet features or achievements
+                let detailsHTML = '';
+                if (proj.features && proj.features.length > 0) {
+                    detailsHTML += `<ul class="proj-bullets">` + 
+                        proj.features.map(f => `<li><i class="${f.icon}"></i> ${f.text}</li>`).join('') + 
+                        `</ul>`;
+                } else if (proj.achievements && proj.achievements.length > 0) {
+                    detailsHTML += `<ul class="proj-bullets">` + 
+                        proj.achievements.map(a => `<li><i class="${a.icon}"></i> ${a.text}</li>`).join('') + 
+                        `</ul>`;
+                }
+
+                // Highlight text block
+                const highlightHTML = proj.highlight ? `<div class="proj-highlight">${proj.highlight}</div>` : '';
+                
+                // Technologies
+                const techHTML = proj.technologies ? `<div class="tech-tags">` + 
+                    proj.technologies.map(t => `<span class="tech-tag">${t}</span>`).join('') + 
+                    `</div>` : '';
+
+                // Links
+                const linksArray = [];
+                if (proj.links) {
+                    Object.entries(proj.links).forEach(([type, url]) => {
+                        const labels = {
+                            github: 'GitHub',
+                            demo: 'Live Demo',
+                            live: 'Live Site',
+                            crate: 'View Crate'
+                        };
+                        const icons = {
+                            github: 'fab fa-github',
+                            demo: 'fas fa-external-link-alt',
+                            live: 'fas fa-globe',
+                            crate: 'fas fa-cube'
+                        };
+                        linksArray.push(`<a href="${url}" target="_blank"><i class="${icons[type] || 'fas fa-link'}"></i> ${labels[type] || type}<span class="link-url">: ${shortenUrl(url)}</span></a>`);
+                    });
+                }
+                const linksHTML = linksArray.length > 0 ? `<div class="proj-links">${linksArray.join(' &nbsp;•&nbsp; ')}</div>` : '';
+
+                return `
+                    <div class="project-item">
+                        <div class="item-header">
+                            <h4 class="item-title">${proj.title} ${statusBadge}</h4>
+                            ${dateRange}
+                        </div>
+                        <p class="item-desc">${proj.description}</p>
+                        ${highlightHTML}
+                        ${detailsHTML}
+                        ${techHTML}
+                        ${linksHTML}
+                    </div>
+                `;
+            }).join('');
+            document.getElementById('projects-section-content').innerHTML = projectsHTML;
+
+            // 4. Render Skills (Right Col)
+            // Programming languages with bars
+            const progSkillsHTML = CVData.skills.programming.map(s => `
+                <div class="skill-bar-item">
+                    <div class="skill-name-row">
+                        <span class="skill-name">${s.name}</span>
+                        <span class="skill-percent">${s.level}%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" style="width: ${s.level}%"></div>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('prog-skills-content').innerHTML = progSkillsHTML;
+
+            // Helper to render badges
+            const renderSkillTags = (skillsList) => {
+                return skillsList.map(s => `
+                    <span class="skill-badge ${s.level}">${s.name}</span>
+                `).join('');
+            };
+
+            document.getElementById('ai-skills-content').innerHTML = renderSkillTags(CVData.skills.ai);
+            document.getElementById('framework-skills-content').innerHTML = renderSkillTags(CVData.skills.frameworks);
+            document.getElementById('database-skills-content').innerHTML = renderSkillTags(CVData.skills.database);
+
+            // 5. Render Education (Right Col)
+            const educationHTML = CVData.education.map(edu => `
+                <div class="education-item">
+                    <h4 class="edu-institution">${edu.institution}</h4>
+                    <div class="edu-degree">${edu.degree}</div>
+                    <div class="edu-date">${formatDate(edu.startDate)} - ${formatDate(edu.endDate)}</div>
+                </div>
+            `).join('');
+            document.getElementById('education-section-content').innerHTML = educationHTML;
+
+            // 6. Render Certificates (Right Col)
+            const certificatesHTML = CVData.certificates.map(cert => `
+                <div class="certificate-item">
+                    <h4 class="cert-name"><a href="${cert.url}" target="_blank">${cert.name}</a></h4>
+                    <div class="cert-date">${formatDate(cert.date)}</div>
+                </div>
+            `).join('');
+            document.getElementById('certificates-section-content').innerHTML = certificatesHTML;
+        });
+    </script>
+</body>
+</html>
