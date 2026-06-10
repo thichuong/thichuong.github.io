@@ -3,6 +3,7 @@ const CVData = {
     personal: {
         name: "Thi Thanh Chương",
         title: "DEVELOPER / DATA ENGINEER",
+        languages: "Languages: Vietnamese (Native) | English",
         contact: {
             address: "13/1 ấp Chợ, xã Phú Phụng, Vĩnh Long",
             email: "thichuong22022000@gmail.com",

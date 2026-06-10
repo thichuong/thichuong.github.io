@@ -175,7 +175,14 @@
             color: var(--primary);
             letter-spacing: 0.05em;
             text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-languages {
+            font-size: 0.875rem;
+            color: var(--text-light);
             margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         /* Contact Details */
@@ -644,6 +651,7 @@
                 <div class="header-left">
                     <h1 id="cv-name">Loading...</h1>
                     <div id="cv-title">Loading...</div>
+                    <div id="cv-languages" class="cv-languages"></div>
                 </div>
                 <div class="header-right">
                     <ul class="contact-list" id="contact-list">
@@ -775,6 +783,12 @@
             const personal = CVData.personal;
             document.getElementById('cv-name').textContent = personal.name;
             document.getElementById('cv-title').textContent = personal.title;
+            if (personal.languages) {
+                const langEl = document.getElementById('cv-languages');
+                if (langEl) {
+                    langEl.textContent = personal.languages;
+                }
+            }
             document.getElementById('cv-summary').innerHTML = CVData.summary;
 
             // Render Contacts list

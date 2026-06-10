@@ -35,7 +35,6 @@ class CVRenderer {
                         <li><a href="#projects" class="nav-link" data-section="projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
                         <li><a href="#education" class="nav-link" data-section="education"><i class="fas fa-graduation-cap"></i> Education</a></li>
                         <li><a href="#contact" class="nav-link" data-section="contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                        <li><a href="cv.html" class="nav-link" target="_blank"><i class="fas fa-print"></i> In CV</a></li>
                     </ul>
                 </div>
             </nav>
@@ -55,14 +54,12 @@ class CVRenderer {
                     </div>
                     <h1 class="hero-name">${data.personal.name}</h1>
                     <p class="hero-title">${data.personal.title}</p>
+                    ${data.personal.languages ? `<p class="hero-languages">${data.personal.languages}</p>` : ''}
                     <p class="hero-summary">${data.summary}</p>
                     <div class="hero-cta">
                         <button class="btn btn-primary nav-section-btn" data-section="projects">
                             <i class="fas fa-folder-open"></i> View Projects
                         </button>
-                        <a href="cv.html" class="btn btn-secondary" target="_blank" style="text-decoration: none;">
-                            <i class="fas fa-print"></i> In CV (PDF)
-                        </a>
                         <button class="btn btn-secondary nav-section-btn" data-section="contact">
                             <i class="fas fa-paper-plane"></i> Contact Me
                         </button>
@@ -375,7 +372,7 @@ class CVRenderer {
         return `
             <footer class="site-footer">
                 <div class="footer-content">
-                    <p>&copy; ${year} Thi Thanh Chương. Built with ❤️</p>
+                    <p>&copy; ${year} Thi Thanh Chuong. Built with ❤️</p>
                 </div>
             </footer>
         `;
