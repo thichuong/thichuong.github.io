@@ -14,11 +14,16 @@ const CVData = {
 
     skills: {
         programming: [
-            { name: "Python", level: 95 },
-            { name: "JavaScript", level: 85 },
-            { name: "Rust", level: 90 },
-            { name: "C#", level: 80 },
-            { name: "C++", level: 70 }
+            "Python",
+            "JavaScript",
+            "Rust",
+            "C#",
+            "C++",
+            "Unit Testing",
+            "CI/CD (GitHub Actions)",
+            "Docker",
+            "Git Flow (Code Review / Pull Requests)",
+            "RESTful API Integration"
         ],
         ai: [
             { name: "Machine Learning", level: "expert" },
@@ -81,8 +86,8 @@ const CVData = {
 
     experience: [
         {
-            position: "Independent AI & Software Developer",
-            startDate: "2023-08",
+            position: "Software Engineer (Contract / Freelance)",
+            startDate: "2022-08",
             endDate: "Present"
         }
     ],
@@ -161,31 +166,6 @@ const CVData = {
             technologies: ["Flutter", "Google ML Kit", "Dart"],
             links: {
                 github: "https://github.com/thichuong/MobileAppTranslate"
-            }
-        },
-        {
-            title: "Game Mario Bros 3 Clone",
-            dateRange: "10/2020 - 01/2021",
-            description: "A Mario-style game developed in C++ using DirectX 10, recreating classic gameplay mechanics with high-quality graphics and sound.",
-            achievements: [
-                { icon: "fas fa-trophy", text: "Custom-built physics engine" }
-            ],
-            technologies: ["C++", "DirectX 10", "Game Development"],
-            links: {
-                github: "https://github.com/thichuong/GameMariobros3"
-            }
-        },
-        {
-            title: "Paint Application",
-            dateRange: "08/2019 - 01/2020",
-            description: "A painting application similar to Microsoft Paint with a user-friendly interface and a variety of drawing tools, built on WinForms.",
-            features: [
-                { icon: "fas fa-palette", text: "Multi-layer Support" },
-                { icon: "fas fa-brush", text: "Custom Brushes" }
-            ],
-            technologies: ["C#", ".NET Framework", "WinForms"],
-            links: {
-                github: "https://github.com/thichuong/Paint"
             }
         }
     ]

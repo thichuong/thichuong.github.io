@@ -672,6 +672,8 @@ body.dark-theme .nav-bar.scrolled {
     font-weight: 600;
     transition: all var(--transition-spring);
     cursor: default;
+    background: var(--primary-gradient);
+    color: white;
 }
 
 .skill-tag.expert {

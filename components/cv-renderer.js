@@ -94,10 +94,10 @@ class CVRenderer {
                         <div class="skill-category-card reveal">
                             <div class="skill-category-header">
                                 <i class="fas fa-code"></i>
-                                <h3>Programming Languages</h3>
+                                <h3>Programming & Engineering</h3>
                             </div>
-                            <div class="skill-bars">
-                                ${data.skills.programming.map(skill => this.renderSkillBar(skill)).join('')}
+                            <div class="skill-tags-container">
+                                ${this.renderSkillTags(data.skills.programming)}
                             </div>
                         </div>
 
@@ -137,23 +137,28 @@ class CVRenderer {
     }
 
     renderSkillBar(skill) {
+        const name = typeof skill === 'string' ? skill : skill.name;
+        const level = typeof skill === 'object' && skill.level !== undefined ? skill.level : 100;
         return `
             <div class="skill-item">
                 <div class="skill-info">
-                    <span class="skill-name">${skill.name}</span>
-                    <span class="skill-level">${skill.level}%</span>
+                    <span class="skill-name">${name}</span>
+                    <span class="skill-level">${level}%</span>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-progress" data-width="${skill.level}"></div>
+                    <div class="skill-progress" data-width="${level}"></div>
                 </div>
             </div>
         `;
     }
 
     renderSkillTags(skills) {
-        return skills.map(skill =>
-            `<span class="skill-tag ${skill.level}">${skill.name}</span>`
-        ).join('');
+        if (!Array.isArray(skills)) return '';
+        return skills.map(skill => {
+            const name = typeof skill === 'string' ? skill : skill.name;
+            const levelClass = (typeof skill === 'object' && skill.level) ? ` ${skill.level}` : '';
+            return `<span class="skill-tag${levelClass}">${name}</span>`;
+        }).join('');
     }
 
     // Render Projects Section

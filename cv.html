@@ -461,7 +461,9 @@
             font-weight: 600;
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
-            border: 1px solid transparent;
+            border: 1px solid #e0e7ff;
+            background-color: #eef2ff;
+            color: var(--primary);
         }
 
         .skill-badge.expert {
@@ -701,8 +703,8 @@
                     </h2>
                     
                     <div class="skill-group">
-                        <h3 class="skill-group-title">Programming Languages</h3>
-                        <div id="prog-skills-content">
+                        <h3 class="skill-group-title">Programming & Engineering</h3>
+                        <div class="skill-badges" id="prog-skills-content">
                             <!-- Loaded dynamically -->
                         </div>
                     </div>
@@ -877,27 +879,16 @@
             document.getElementById('projects-section-content').innerHTML = projectsHTML;
 
             // 4. Render Skills (Right Col)
-            // Programming languages with bars
-            const progSkillsHTML = CVData.skills.programming.map(s => `
-                <div class="skill-bar-item">
-                    <div class="skill-name-row">
-                        <span class="skill-name">${s.name}</span>
-                        <span class="skill-percent">${s.level}%</span>
-                    </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" style="width: ${s.level}%"></div>
-                    </div>
-                </div>
-            `).join('');
-            document.getElementById('prog-skills-content').innerHTML = progSkillsHTML;
-
-            // Helper to render badges
             const renderSkillTags = (skillsList) => {
-                return skillsList.map(s => `
-                    <span class="skill-badge ${s.level}">${s.name}</span>
-                `).join('');
+                if (!Array.isArray(skillsList)) return '';
+                return skillsList.map(s => {
+                    const name = typeof s === 'string' ? s : s.name;
+                    const levelClass = (typeof s === 'object' && s.level) ? ` ${s.level}` : '';
+                    return `<span class="skill-badge${levelClass}">${name}</span>`;
+                }).join('');
             };
 
+            document.getElementById('prog-skills-content').innerHTML = renderSkillTags(CVData.skills.programming);
             document.getElementById('ai-skills-content').innerHTML = renderSkillTags(CVData.skills.ai);
             document.getElementById('framework-skills-content').innerHTML = renderSkillTags(CVData.skills.frameworks);
             document.getElementById('database-skills-content').innerHTML = renderSkillTags(CVData.skills.database);
